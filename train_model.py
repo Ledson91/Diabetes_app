@@ -6,7 +6,15 @@ import joblib
 data = "Diabetes_cleaned_data.csv"
 df = pd.read_csv(data)
 
-#Split the dataset into X and y
+#Split the dataset into X and y, but first we remove the "Unnamed" column
+
+if 'Unnamed: 0' in df.columns:
+    df=df.drop('Unnamed: 0',axis=1)
+    print("Unamed found")
+
+#X = df.drop('Outcome',axis = 1)
+
+#X.info()
 
 X = df.drop('Outcome',axis = 1)
 y = df['Outcome'] 
