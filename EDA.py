@@ -1,6 +1,8 @@
 import pandas as pd 
 
 d1=pd.read_csv('Diabetes.csv') 
+#if 'Unnamed: 0' in d1.columns:
+#    d1=d1.drop('Unnamed: 0',axis=1)
 
 d2=d1.loc[(d1['Glucose']!=0) & (d1['BloodPressure']!=0) & 
           (d1['SkinThickness']!=0) & (d1['Insulin']!=0) & (d1['BMI']!=0)]

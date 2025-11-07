@@ -27,10 +27,10 @@ with st.form("Prediction form"):
     submitted = st.form_submit_button("Predict")
 
 if submitted:
-    input_data = pd.DataFrame([[pregnancies,glucose,blood_pressure,bmi,skin_thinkness,insulin,diabetes_pedigree,age]],
-                              columns = ['Pregnancies','Glucose','BloodPressure','BMI','SkinThickness','Insulin','DiabetesPedigreeFunction','Age'])
+    input_data = pd.DataFrame([[pregnancies,glucose,blood_pressure,skin_thinkness,insulin,bmi,diabetes_pedigree,age]],
+                              columns = ['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'])
     prediction = model.predict(input_data)[0]
-    
+
     if prediction == 1:
         st.error("Prediction : Positive for Diabetes")
     else:
